@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/styles/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@expo-webview-kit/ui/components",
+    "utils": "@expo-webview-kit/ui/utils",
+    "hooks": "@expo-webview-kit/ui/hooks",
+    "ui": "@expo-webview-kit/ui/components"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@expo-webview-kit/api",
+  "version": "0.0.0",
+  "files": ["./src/index.ts"],
+  "scripts": {
+    "generate-type": "openapi-typescript https://api.example.com/swagger.json -o ./src/types/api.ts --properties-required-by-default true --alphabetize true"
+  },
+  "devDependencies": {
+    "@expo-webview-kit/typescript-config": "workspace:*",
+    "@expo-webview-kit/utils": "workspace:*",
+    "@types/node": "catalog:",
+    "openapi-fetch": "^0.13.4",
+    "openapi-typescript": "^7.6.1",
+    "typescript": "catalog:"
+  }
+}

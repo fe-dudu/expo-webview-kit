@@ -1,0 +1,18 @@
+{
+  "name": "@expo-webview-kit/utils",
+  "version": "0.0.0",
+  "dependencies": {
+    "@toss/storage": "^1.4.0",
+    "date-fns": "catalog:",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@expo-webview-kit/typescript-config": "workspace:*",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

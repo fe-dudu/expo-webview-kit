@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignore": ["**/package.json"],
+  "ignoreDependencies": ["autoprefixer", "postcss-load-config"],
+  "workspaces": {
+    ".": {
+      "ignore": [
+        "packlint.config.mjs",
+        "packages/utils/**/*",
+        "packages/ui/src/theme/index.ts",
+        "packages/api/src/types/api.ts",
+        "apps/mobile/**/*"
+      ]
+    }
+  }
+}
