@@ -1,0 +1,52 @@
+{
+  "name": "@expo-webview-kit/api",
+  "version": "0.0.0",
+  "exports": {
+    "./client": "./src/client/index.ts",
+    "./BadRequestError": "./src/error/index.ts",
+    "./BaseApiError": "./src/error/index.ts",
+    "./ConflictError": "./src/error/index.ts",
+    "./ForbiddenError": "./src/error/index.ts",
+    "./InternalServerError": "./src/error/index.ts",
+    "./NotFoundError": "./src/error/index.ts",
+    "./UnauthorizedError": "./src/error/index.ts",
+    "./RefreshTokenPromiseInjector": "./src/injector/index.tsx",
+    "./apiMiddleware": "./src/middleware/index.ts",
+    "./paths": "./src/types/api.ts",
+    "./Environment": "./src/types/env.ts",
+    "./global.d.ts": "./src/types/global.d.ts",
+    "./GetPath": "./src/types/path.ts",
+    "./PutPath": "./src/types/path.ts",
+    "./PostPath": "./src/types/path.ts",
+    "./DeletePath": "./src/types/path.ts",
+    "./PatchPath": "./src/types/path.ts",
+    "./GetRequest": "./src/types/request.ts",
+    "./PutRequest": "./src/types/request.ts",
+    "./PostRequest": "./src/types/request.ts",
+    "./DeleteRequest": "./src/types/request.ts",
+    "./PatchRequest": "./src/types/request.ts",
+    "./GetResponse": "./src/types/response.ts",
+    "./PutResponse": "./src/types/response.ts",
+    "./PostResponse": "./src/types/response.ts",
+    "./DeleteResponse": "./src/types/response.ts",
+    "./PatchResponse": "./src/types/response.ts"
+  },
+  "scripts": {
+    "generate-type": "openapi-typescript https://api.example.com/swagger.json -o ./src/types/api.ts --properties-required-by-default true --alphabetize true",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "jwt-decode": "catalog:",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@expo-webview-kit/typescript-config": "workspace:*",
+    "@expo-webview-kit/utils": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "openapi-fetch": "^0.13.4",
+    "openapi-typescript": "^7.6.1",
+    "typescript": "catalog:"
+  }
+}

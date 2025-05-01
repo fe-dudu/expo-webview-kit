@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignore": ["**/package.json"],
+  "workspaces": {
+    ".": {
+      "ignore": ["packlint.config.mjs", "**/postcss.config.mjs", "apps/mobile/app.json"]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+name: Deploy Web Admin
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/web-admin/**'
+      - 'packages/**'
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy environment (dev, prod)'
+        required: false
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - prod
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.inputs.environment || 'dev' }}
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: Setup
+    outputs:
+      environment: ${{ steps.set-environment.outputs.environment }}
+    steps:
+      - name: Set environment and endpoints
+        id: set-environment
+        run: |
+          environment="${{ github.event.inputs.environment || 'dev' }}"
+          echo "environment=$environment" >> $GITHUB_OUTPUT
+
+  build-and-push:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/actions/pnpm-setup-node
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build Vite app
+        run: pnpm run build
+        working-directory: ./apps/web-admin
+        env:
+          VITE_ENV: ${{ needs.setup.outputs.environment }}
+
+      - name: Deploy to Firebase Hosting
+        run: npx firebase deploy --only hosting:expo-webview-kit-web-admin-${{ needs.setup.outputs.environment }} --project ${{ secrets.FIREBASE_PROJECT_ID }} --token ${{ secrets.FIREBASE_TOKEN }}
+        working-directory: ./apps/web-admin

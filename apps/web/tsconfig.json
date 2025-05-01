@@ -1,0 +1,11 @@
+{
+	"extends": "@expo-webview-kit/typescript-config/react-library.json",
+	"compilerOptions": {
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src"]
+}

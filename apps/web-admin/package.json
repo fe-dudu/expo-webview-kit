@@ -1,0 +1,43 @@
+{
+  "name": "web-admin",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "dev": "vite --host",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo-webview-kit/api": "workspace:*",
+    "@expo-webview-kit/tanstack-query": "workspace:*",
+    "@expo-webview-kit/ui": "workspace:*",
+    "@expo-webview-kit/utils": "workspace:*",
+    "@suspensive/react": "catalog:",
+    "@suspensive/react-query": "catalog:",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-query-devtools": "catalog:",
+    "jotai": "catalog:",
+    "lucide-react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router": "catalog:",
+    "sonner": "catalog:"
+  },
+  "devDependencies": {
+    "@expo-webview-kit/typescript-config": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
+    "globals": "catalog:",
+    "jotai-devtools": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-svgr": "catalog:",
+    "vite-tsconfig-paths": "catalog:"
+  }
+}

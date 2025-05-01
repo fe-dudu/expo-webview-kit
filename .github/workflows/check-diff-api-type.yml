@@ -1,0 +1,46 @@
+name: Check diff API type (daily)
+
+on:
+  schedule:
+    - cron: '0 23 * * 0-6'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/pnpm-setup-node
+      - run: pnpm install --frozen-lockfile --ignore-script
+
+      - name: Run command and check for changes
+        run: |
+          pnpm generate-type
+          
+          git diff > diff.patch
+          
+          if [ -s diff.patch ]; then
+            pnpm rimraf ./diff.patch
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+            timestamp=$(date +'%Y%m%d%H%M%S')
+            branch_name="diff-${timestamp}"
+
+            git checkout -b $branch_name
+
+            git add .
+            git commit -m "chore(api): change API types"
+            git push origin $branch_name
+
+            gh pr create --title "API type change" --body "This is a PR created by GitHub Actions." --base main --head $branch_name
+          else
+            pnpm rimraf ./diff.patch
+            exit 0
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

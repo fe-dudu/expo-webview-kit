@@ -1,0 +1,14 @@
+{
+  "hosting": [
+    {
+      "site": "expo-webview-kit-storybook",
+      "public": "storybook-static",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

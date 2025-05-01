@@ -1,0 +1,20 @@
+'mobile':
+  - 'apps/mobile/**/*'
+'web':
+  - 'apps/web/**/*'
+'admin':
+  - 'apps/web-admin/**/*'
+'api':
+  - 'packages/api/**/*'
+'tanstack-query':
+  - 'packages/tanstack-query/**/*'
+'tsconfig':
+  - 'packages/typescript-config/**/*'
+'ui':
+  - 'packages/ui/**/*'
+'utils':
+  - 'packages/utils/**/*'
+'dependencies':
+  - 'pnpm-lock.yaml'
+'workflows':
+  - '.github/workflows/**/*'

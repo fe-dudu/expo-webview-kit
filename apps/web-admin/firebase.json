@@ -1,0 +1,24 @@
+{
+  "hosting": [
+    {
+      "site": "expo-webview-kit-web-admin-dev",
+      "public": "dist",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "site": "expo-webview-kit-web-admin-prod",
+      "public": "dist",
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
