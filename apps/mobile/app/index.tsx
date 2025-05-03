@@ -1,5 +1,5 @@
+import { SafeAreaView } from '@/components/SafeAreaView';
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 
 export default function Index() {
